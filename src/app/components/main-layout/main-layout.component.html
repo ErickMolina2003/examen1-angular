@@ -1,0 +1,181 @@
+<div class="main-layout">
+  <app-main-nav-bar></app-main-nav-bar>
+
+  <div class="container layout-container mt-3">
+    <span *ngIf="chats === true" style="padding: 0; margin: 0">
+      <div class="row mb-3" *ngFor="let item of conversationList">
+        <div
+          style="display: flex"
+          (click)="
+            item.tipo === 'individual'
+              ? navigateToConversation(item.idConversacion)
+              : navigateToGroup(item.idGrupo)
+          "
+        >
+          <div
+            *ngIf="item.imagenDestinatario !== null"
+            class="col-5 col-sm-5 col-md-5 col-lg-5 user-status"
+          >
+            <img
+              class="user-img"
+              [src]="item.imagenDestinatario"
+              alt="user-img"
+              width="84px"
+              height="84px"
+            />
+            <span
+              *ngIf="item.tipo === 'individual'"
+              class="status-indicator"
+              [ngClass]="{
+                'status-online': item.status === 'disponible',
+                'status-busy': item.status === 'ocupado',
+                'status-await': item.status === 'ausente'
+              }"
+            ></span>
+          </div>
+          <div
+            *ngIf="item.imagenDestinatario === null"
+            class="col-5 col-sm-5 col-md-5 col-lg-5 user-status"
+          >
+            <span
+              class="icon-img"
+              [ngClass]="{
+                'img-color-2': item.tipo === 'grupal',
+                'img-color-1': item.tipo === 'individual'
+              }"
+            >
+              <i *ngIf="item.tipo === 'grupal'" class="fa fa-users fa-2x"></i>
+              <h3 *ngIf="item.tipo === 'individual'">
+                {{ item.nombreDestinatario[0] }}
+              </h3>
+            </span>
+            <span
+              *ngIf="item.tipo === 'individual'"
+              class="status-indicator"
+              [ngClass]="{
+                'status-online': item.status === 'disponible',
+                'status-busy': item.status === 'ocupado',
+                'status-await': item.status === 'ausente'
+              }"
+            ></span>
+          </div>
+          <div class="col-7 col-sm-7 col-md-7 col-lg-7 pt-2">
+            <div class="row">
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="row d-flex justify-content-between">
+                  <h6 class="text-white">{{ item.nombreDestinatario }}</h6>
+                  <p class="list-paragraph">{{ item.horaUltimoMensaje }}</p>
+                </div>
+              </div>
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12 pl-0">
+                <p class="list-paragraph">{{ item.ultimoMensaje }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </span>
+    <span *ngIf="calls === true" style="padding: 0; margin: 0">
+      <div class="row mb-3">
+        <div class="col-5 col-sm-5 col-md-5 col-lg-5 user-status">
+          <img
+            class="user-img"
+            src="https://ami.animecharactersdatabase.com/uploads/chars/thumbs/200/12602-635813231.jpg"
+            alt="user-img"
+            width="84px"
+            height="84px"
+          />
+          <span class="status-indicator status-online"></span>
+        </div>
+        <div class="col-7 col-sm-7 col-md-7 col-lg-7 pt-2">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="row d-flex justify-content-between">
+                <h6 class="text-white">Madara</h6>
+                <p class="list-paragraph">14:30</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 pl-0">
+              <div class="row justify-content-between">
+                <div class="col d-flex align-items-center text-white">
+                  <i class="fa fa-arrow-up pr-2"></i>
+                  30min
+                </div>
+                <div class="col-auto">
+                  <i class="fa fa-info-circle text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-5 col-sm-5 col-md-5 col-lg-5 user-status">
+          <span class="icon-img img-color-1">
+            <h3>S</h3>
+          </span>
+          <span class="status-indicator status-busy"></span>
+        </div>
+        <div class="col-7 col-sm-7 col-md-7 col-lg-7 pt-2">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="row d-flex justify-content-between">
+                <h6 class="text-white">Saske</h6>
+                <p class="list-paragraph">14:30</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 pl-0">
+              <div class="row justify-content-between">
+                <div class="col d-flex align-items-center text-white">
+                  <i class="fa fa-arrow-down pr-2"></i>
+                  30min
+                </div>
+                <div class="col-auto">
+                  <i class="fa fa-info-circle text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-5 col-sm-5 col-md-5 col-lg-5 user-status">
+          <span class="icon-img img-color-1">
+            <h3>M</h3>
+          </span>
+          <span class="status-indicator status-await"></span>
+        </div>
+        <div class="col-7 col-sm-7 col-md-7 col-lg-7 pt-2">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="row d-flex justify-content-between">
+                <h6 class="text-white">Madara</h6>
+                <p class="list-paragraph">14:30</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 pl-0">
+              <div class="row justify-content-between">
+                <div class="col d-flex align-items-center text-white">
+                  <i class="fa fa-arrow-down pr-2"></i>
+                  30min
+                </div>
+                <div class="col-auto">
+                  <i class="fa fa-info-circle text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </span>
+  </div>
+
+  <app-main-footer
+    [chats]="chats"
+    [teams]="teams"
+    [calls]="calls"
+    [more]="more"
+    (changeView)="handleChange($event)"
+  ></app-main-footer>
+</div>

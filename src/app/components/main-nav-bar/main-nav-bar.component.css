@@ -1,0 +1,27 @@
+.main-navbar {
+    background-color: #000 !important;
+    width: 100%;
+    padding: 0;
+}
+
+.navbar-image {
+    border-radius: 50%;
+}
+
+.navbar-input {
+    border-radius: 12px;
+    background-color: #2b2b2d;
+    border: none;
+    color: #848383;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.user-name {
+    color: #ffff;
+}
+
+:host{
+    width: 100%;
+}

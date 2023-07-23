@@ -1,0 +1,59 @@
+.layout-container {
+    width: 100%;
+}
+
+.user-img {
+    border-radius: 50%;
+}
+
+.list-paragraph {
+    color: #868686;
+}
+
+.user-status {
+    display: inline-block;
+    position: relative;
+}
+
+.status-indicator {
+    position: absolute;
+    bottom: 16px;
+    right: 26px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    border: solid 2px #B8B8B8;
+}
+
+.status-online {
+    background-color: green;
+}
+
+.status-busy {
+    background-color: red;
+}
+
+.status-await {
+    background-color: yellow;
+}
+
+.icon-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+}
+
+.img-color-1 {
+    background-color: #EDD6CE;
+}
+
+.img-color-2 {
+    background-color: #8084EE;
+}
+
+:host {
+    width: 100%;
+}

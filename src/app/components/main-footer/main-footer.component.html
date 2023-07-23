@@ -1,0 +1,110 @@
+<footer class="footer text-white">
+  <div class="container d-flex align-items-center" style="height: 100%">
+    <div class="row">
+      <div class="col-3 col-sm-3 col-md-3 col-lg-3" (click)="emitChangeView('chat')">
+        <div class="row">
+          <div
+            class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mb-1"
+          >
+            <i
+              class="fa fa-comment"
+              [ngClass]="{
+              'active': chats === true,
+            }"
+            ></i>
+          </div>
+          <div
+            class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center"
+          >
+            <p
+              class="text-white mb-0 footer-text"
+              [ngClass]="{
+                'active': chats === true,
+              }"
+            >
+              Chat
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-3 col-sm-3 col-md-3 col-lg-3" (click)="emitChangeView('teams')">
+        <div class="row">
+          <div
+            class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mb-1"
+          >
+            <i
+              class="fa fa-users"
+              [ngClass]="{
+              'active': teams === true,
+            }"
+            ></i>
+          </div>
+          <div
+            class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center"
+          >
+            <p
+              class="text-white mb-0 footer-text"
+              [ngClass]="{
+              'active': teams === true,
+            }"
+            >
+              Teams
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-3 col-sm-3 col-md-3 col-lg-3" (click)="emitChangeView('calls')">
+        <div class="row">
+          <div
+            class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mb-1"
+          >
+            <i
+              class="fa fa-phone"
+              [ngClass]="{
+              'active': calls === true,
+            }"
+            ></i>
+          </div>
+          <div
+            class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center"
+          >
+            <p
+              class="text-white mb-0 footer-text"
+              [ngClass]="{
+              'active': calls === true,
+            }"
+            >
+              Calls
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-3 col-sm-3 col-md-3 col-lg-3" (click)="emitChangeView('more')">
+        <div class="row">
+          <div
+            class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mb-1"
+          >
+            <i
+              class="fa fa-ellipsis-h"
+              [ngClass]="{
+              'active': more === true,
+            }"
+            ></i>
+          </div>
+          <div
+            class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center"
+          >
+            <p
+              class="text-white mb-0 footer-text"
+              [ngClass]="{
+              'active': more === true,
+            }"
+            >
+              More
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
